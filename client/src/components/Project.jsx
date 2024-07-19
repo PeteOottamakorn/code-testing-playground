@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import ProjectImages from "./ProjectImages";
 
-const Project = () => {
+function Project() {
   const projects = [
     {
       id: 1,
@@ -44,8 +44,8 @@ const Project = () => {
     <Row>
       {projects.map((project) => (
         <Col xs={12} md={6} lg={4} key={projects.id}>
-          <Card key={projects.id}>
-            <ProjectImages images={project.image} interval={1000} />
+          <Card className="projectCard">
+            <Card.Img variant="top" src={project.image}></Card.Img>
             <Card.Body>
               <Card.Title>{projects.title}</Card.Title>
               <Card.Text>
@@ -66,6 +66,6 @@ const Project = () => {
       ))}
     </Row>
   );
-};
+}
 
 export default Project;
