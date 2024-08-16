@@ -1,4 +1,4 @@
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import ProjectImages from "./ProjectImages";
@@ -45,17 +45,24 @@ function Project() {
       {projects.map((project) => (
         <Col xs={12} md={6} lg={4} key={projects.id}>
           <Card className="projectCard">
-            <Card.Img variant="top" src={project.image[0]}></Card.Img>
+            <Card.Img variant="top">
+              <Carousel fade>
+                <Carousel.Item></Carousel.Item>
+                <Carousel.Item></Carousel.Item>
+                <Carousel.Item></Carousel.Item>
+                <Carousel.Item></Carousel.Item>
+              </Carousel>
+            </Card.Img>
             <Card.Body>
               <Card.Title>{projects.title}</Card.Title>
               <Card.Text>
-                {projects.deploy ? (
-                  <Link to={projects.deploy} className="projectLink">
-                    Site
-                  </Link>
-                ) : (
+                {/* {projects.deploy ? ( */}
+                <Link to={projects.deploy} className="projectLink">
+                  Site
+                </Link>
+                {/* ) : (
                   <p id="inactiveLink">Site</p>
-                )}
+                )} */}
                 <Link to={projects.gitrepo} className="projectLink">
                   GitHub
                 </Link>
